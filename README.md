@@ -45,6 +45,7 @@ Before you can run the workflows correctly, make sure you have the following req
    The Dockerfile is used to build a Docker image of your application. It should be located in the root directory of
    your repository.
 
+
 ---
 
 3. **🔑 Environment Variables**:
@@ -54,7 +55,7 @@ Before you can run the workflows correctly, make sure you have the following req
     - `DOCKER_USERNAME`: Your Docker Hub username.
     - `DOCKER_PASSWORD`: Your Docker Hub password.
     - `REGISTRY_NAME`: The name of your Docker registry.
-    - `GITHUB_TOKEN`: A GitHub token with the necessary permissions to create a release.
+    - `ACCESS_TOKEN`: A GitHub token with the necessary permissions to create a release.
 
    These should be set in the repository's secrets.
 
@@ -88,7 +89,7 @@ Before you can run the workflows correctly, make sure you have the following req
 
 7. **🔑 GitHub Token**:
 
-   The `GITHUB_TOKEN` should be a GitHub token with the necessary permissions to create a release. You can create a new
+   The `ACCESS_TOKEN` should be a GitHub token with the necessary permissions to create a release. You can create a new
    token in your GitHub account settings.
 
 ---

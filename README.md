@@ -2,8 +2,8 @@
 
 --- 
 
-![Deployment Status](https://github.com/islam-femtosec/deployment_lab/actions/workflows/__test__deployment.lab.yml/badge.svg?branch=deploy__test)
-
+[![Create Release](https://github.com/islam-femtosec/deployment_lab/actions/workflows/create.release.yml/badge.svg)](https://github.com/islam-femtosec/deployment_lab/actions/workflows/create.release.yml)
+[![Create Release](https://github.com/islam-femtosec/deployment_lab/actions/workflows/create.release.yml/badge.svg)](https://github.com/islam-femtosec/deployment_lab/actions/workflows/create.release.yml)
 ## **Introduction**
 
 **Deployment Lab** is a project that automates the build and push image process using GitHub Actions and Docker. It's

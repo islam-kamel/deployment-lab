@@ -2,13 +2,15 @@
 
 ## **Introduction**
 
-**Deployment Lab** is a project that automates the build and push image process using GitHub Actions and Docker. It's designed
+**Deployment Lab** is a project that automates the build and push image process using GitHub Actions and Docker. It's
+designed
 for
 developers who want to streamline their deployment workflows.
 
 ## **Installation**
 
-To install Deployment Lab, you'll need to Clone the repository and set up the required environment variables on your repository.
+To install Deployment Lab, you'll need to Clone the repository and set up the required environment variables on your
+repository.
 create your application's Dockerfile and push it.
 
 > Don't push your files on the Deployment Lab repository. Clone it and push it on your own repository.
@@ -24,7 +26,7 @@ To use Deployment Lab, follow these steps:
 ## **Contact**
 
 If you have any questions or feedback, please reach out to us
-at [contact@deploymentlab.com](mailto:contact@deploymentlab.com).
+at [contact@deploymentlab.com](mailto:dev.islam.kamel@gmail.com).
 
 ---
 
@@ -55,6 +57,8 @@ Before you can run the workflows correctly, make sure you have the following req
     - `DOCKER_USERNAME`: Your Docker Hub username.
     - `DOCKER_PASSWORD`: Your Docker Hub password.
     - `DOCKER_REGISTRY_NAME`: The name of your Docker registry.
+    - `ACCESS_TOKEN`: The access token for your GitHub account **Note** Make sure this token has permission to create
+      release.
 
    These should be set in the repository's secrets.
 

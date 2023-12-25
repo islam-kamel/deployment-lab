@@ -13,20 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check for tag changes
-        id: check_tag_changes
-        run: |
-          echo "Creating release $github"
-          git fetch --tags
-          PREVIOUS_TAG=$(git describe --tags `git rev-list --tags --skip=1 --max-count=1`)
-          CURRENT_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-          if [ "$PREVIOUS_TAG" != "$CURRENT_TAG" ]; then
-            echo "New tag detected, proceeding with the workflow."
-          else
-            echo "No new tag detected, stopping the workflow."
-            exit 1
-          fi
-
       - name: Set TAG_NAME
         run: echo "TAG_NAME=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
 

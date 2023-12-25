@@ -1,0 +1,14 @@
+name: Create Release
+on:
+  push:
+    branches: ["deploy__test"]
+
+jobs:
+  commit_and_push:
+    needs: [ print_github_context ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Needs
+        run: |
+          echo "${{ toJson(needs) }}"

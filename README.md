@@ -63,7 +63,8 @@ Before you can run the workflows correctly, make sure you have the following req
     - `DOCKER_REGISTRY_NAME`: The name of your Docker registry.
     - `ACCESS_TOKEN`: The access token for your GitHub account **Note** Make sure this token has permission to create
       release.
-
+    - `SLACK_BOT_TOKEN`: The token for your Slack bot.
+    - `SLACK_CHANNEL_IDS`: The channel id by providing a comma-delimited list of channel IDs of the Slack channel where the bot will post messages.
    These should be set in the repository's secrets.
 
 ---

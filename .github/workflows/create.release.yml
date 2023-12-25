@@ -6,9 +6,6 @@ on:
   push:
     tags:
       - '*'
-  repository_dispatch:
-    types: [create-release]
-
 jobs:
   build:
     # This job creates a new release.

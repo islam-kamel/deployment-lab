@@ -41,6 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build ]
     steps:
+      # This step sets the TAG_NAME environment variable to the name of the latest git tag.
+      - name: Set TAG_NAME
+        run: echo "TAG_NAME=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
+
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -50,6 +54,6 @@ jobs:
           # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
           channel-id: ${{ secrets.SLACK_CHANNEL_IDS }}
           # For posting a simple plain text message
-          slack-message: "GitHub Create Release Result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          slack-message: "Published New Release (${{env.TAG_NAME}}) Result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

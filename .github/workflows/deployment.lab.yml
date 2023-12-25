@@ -23,10 +23,10 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_IDS }}
           payload: |
             {
-              "text": "Deployment started (In Progress)",
+              "text": "Build, Push Image Started (In Progress)",
               "attachments": [
                 {
-                  "pretext": "Deployment started",
+                  "pretext": "Build Image Started",
                   "color": "dbab09",
                   "fields": [
                     {
@@ -77,10 +77,10 @@ jobs:
           update-ts: ${{ steps.slack.outputs.ts }}
           payload: |
             {
-              "text": "Deployment finished (Completed)",
+              "text": "Build, Push Image finished (Completed)",
               "attachments": [
                 {
-                  "pretext": "Deployment finished",
+                  "pretext": "Build Image finished",
                   "color": "28a745",
                   "fields": [
                     {

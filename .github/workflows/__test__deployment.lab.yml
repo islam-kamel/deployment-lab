@@ -41,33 +41,29 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  # This job creates a new release.
-  build:
-    name: Create Release
+  commit_and_push:
+    needs: [ push_to_registry ]
     runs-on: ubuntu-latest
-    # This job depends on the successful completion of the 'push_to_registry' job.
-    needs: [push_to_registry]
     steps:
-      # This step checks out the repository code.
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # This step sets the TAG_NAME environment variable to the name of the latest git tag.
-      - name: Set TAG_NAME
-        run: echo "TAG_NAME=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
-
-      # This step creates a new release using the softprops/action-gh-release action.
-      # The new release is created with the name and tag name set to the value of the TAG_NAME environment variable.
-      # The release is not a draft or a pre-release.
-      # The release notes are automatically generated.
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
-          tag_name: ${{ env.TAG_NAME }}
-          name: Release ${{ env.TAG_NAME }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add .github/workflows/create.release.yml .github/workflows/deployment.lab.yml
+          git commit -m "Update workflows"
+          git push origin main
+
+      - name: Trigger Release
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: ${{ github.repository }}
+          event-type: create-release

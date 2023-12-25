@@ -1,4 +1,6 @@
-<div style="text-align: center;"><img src="deployment.lab.png" alt="Deployment Lab Logo" /></div>
+<div style="text-align: center;"> <img src="deployment.lab.png" alt="Deployment Lab Logo" /> </div>
+
+--- 
 
 ![Deployment Status](https://github.com/islam-femtosec/deployment_lab/actions/workflows/__test__deployment.lab.yml/badge.svg?branch=deploy__test)
 

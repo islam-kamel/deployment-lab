@@ -1,4 +1,8 @@
-<div style="text-align: center;"><img src="deployment.lab.png" alt="Deployment Lab Logo" /></div>
+<div style="text-align: center;"> <img src="deployment.lab.png" alt="Deployment Lab Logo" /> </div>
+
+--- 
+
+![Deployment Status](https://github.com/islam-femtosec/deployment_lab/actions/workflows/__test__deployment.lab.yml/badge.svg?branch=deploy__test)
 
 ## **Introduction**
 
@@ -21,7 +25,7 @@ To use Deployment Lab, follow these steps:
 
 1. Set your environment variables in the repository's secrets.
 2. Push a new tag to trigger the `create.release.yml` workflow.
-3. The `deployment.lap.yml` workflow will be triggered when a new release is created.
+3. The `deployment.lab.yml` workflow will be triggered when a new release is created.
 
 ## **Contact**
 
@@ -68,7 +72,7 @@ Before you can run the workflows correctly, make sure you have the following req
 
    There are two workflow files that need to be present in the `.github/workflows` directory:
 
-    - `deployment.lap.yml`: This workflow is triggered when a new release is created. It builds a Docker image from the
+    - `deployment.lab.yml`: This workflow is triggered when a new release is created. It builds a Docker image from the
       Dockerfile and pushes it to Docker Hub.
 
     - `create.release.yml`: This workflow is triggered when a new tag is pushed. It checks for tag changes and creates a
@@ -79,7 +83,7 @@ Before you can run the workflows correctly, make sure you have the following req
 5. **🏷️ Tagging**:
 
    The `create.release.yml` workflow is triggered by pushing a new tag. So, to create a new release and trigger
-   the `deployment.lap.yml` workflow, you need to push a new tag.
+   the `deployment.lab.yml` workflow, you need to push a new tag.
 
 ---
 

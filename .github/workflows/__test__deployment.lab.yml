@@ -3,8 +3,8 @@ name: Deployment Lab Test
 on:
   push:
     branches: [ "deploy__test" ]
-
-
+    tags:
+      - "*"
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -36,19 +36,24 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
 
-  print_github_context:
-    name: Print GitHub context
+  build:
+    name: Create Release
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Print GitHub context
+      - name: Set TAG_NAME
+        run: echo "TAG_NAME=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
         env:
-          GITHUB_NEEDS: ${{ toJson(needs) }}
-        run: |
-          echo "$GITHUB_NEEDS"
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          draft: false
+          prerelease: false,
+          generate_release_notes: true

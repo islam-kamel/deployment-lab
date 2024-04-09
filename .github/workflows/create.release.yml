@@ -41,6 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build ]
     steps:
+      # This step checks out the repository code.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       # This step sets the TAG_NAME environment variable to the name of the latest git tag.
       - name: Set TAG_NAME
         run: echo "TAG_NAME=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV

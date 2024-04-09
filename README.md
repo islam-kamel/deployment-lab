@@ -3,7 +3,8 @@
 --- 
 
 [![Create Release](https://github.com/islam-kamel/deployment-lab/actions/workflows/create.release.yml/badge.svg)](https://github.com/islam-kamel/deployment-lab/actions/workflows/create.release.yml)
-[![Create Release](https://github.com/islam-kamel/deployment-lab/actions/workflows/create.release.yml/badge.svg)](https://github.com/islam-kamel/deployment-lab/actions/workflows/create.release.yml)
+[![Deploy Image](https://github.com/islam-kamel/deployment-lab/actions/workflows/deployment.lab.yml/badge.svg)](https://github.com/islam-kamel/deployment-lab/actions/workflows/deployment.lab.yml)
+
 ## **Introduction**
 
 **Deployment Lab** is a project that automates the build and push image process using GitHub Actions and Docker. It's

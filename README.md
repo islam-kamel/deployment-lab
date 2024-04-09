@@ -68,6 +68,8 @@ Before you can run the workflows correctly, make sure you have the following req
     - `SLACK_CHANNEL_IDS`: The channel id by providing a comma-delimited list of channel IDs of the Slack channel where the bot will post messages.
    These should be set in the repository's secrets.
 
+   **see our [example](https://github.com/islam-kamel/deployment-lab-example) repository**
+
 ---
 
 4. **📁 Workflow Files**:
